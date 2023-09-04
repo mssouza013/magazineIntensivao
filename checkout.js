@@ -5,19 +5,16 @@ import {
   salvarLocalStorage,
 } from "./src/utilidades";
 
-
 function desenharProdutosCheckout() {
   const idsProdutoCarrinhoComQuantidade = lerLocalStorage("carrinho") ?? {};
   for (const idProduto in idsProdutoCarrinhoComQuantidade) {
     desenharProdutoCarrinhoSimples(
       idProduto,
-      "container-produto-checkout",
+      "container-produtos-checkout",
       idsProdutoCarrinhoComQuantidade[idProduto]
     );
   }
-  atualizaPrecoCheckout();
 }
-
 
 function finalizarCompra(evento) {
   evento.preventDefault();
@@ -40,8 +37,7 @@ function finalizarCompra(evento) {
   window.location.href = "./pedidos.html";
 }
 
-
 desenharProdutosCheckout();
-atualizaPrecoCheckout();
 
 document.addEventListener("submit", (evt) => finalizarCompra(evt));
+
